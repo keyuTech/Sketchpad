@@ -6,3 +6,17 @@
   background-color: #aaa;
   display: block;
 }
+.actions {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+.actions > #pen {
+  display: none;
+}
+.actions.switch > #pen {
+  display: inline-block;
+}
+.actions.switch > #eraser {
+  display: none;
+}
