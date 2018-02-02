@@ -1,5 +1,6 @@
 var canvas = document.getElementById('canvas')
 var context = canvas.getContext('2d')
+var lineWidth
 autoSetPage(canvas)
 listenToAction(canvas)
 
@@ -27,8 +28,8 @@ black.onclick = function(){
 }
 grey.onclick = function(){
   context.strokeStyle = 'rgb(120, 120, 120)'
-  black.classList.remove('active')
   grey.classList.add('active')
+  black.classList.remove('active')
   brown.classList.remove('active')
   pink.classList.remove('active')
 }
@@ -45,6 +46,24 @@ pink.onclick = function(){
   grey.classList.remove('active')
   brown.classList.remove('active')
   pink.classList.add('active')
+}
+thin.onclick = function(){
+  lineWidth = 2
+  thin.classList.add('active')
+  normal.classList.remove('active')
+  bold.classList.remove('active')
+}
+normal.onclick = function(){
+  lineWidth = 5
+  normal.classList.add('active')
+  thin.classList.remove('active')
+  bold.classList.remove('active')
+}
+bold.onclick = function(){
+  lineWidth = 8
+  bold.classList.add('active')
+  thin.classList.remove('active')
+  normal.classList.remove('active')
 }
 
 function listenToAction(canvas) {
@@ -141,7 +160,7 @@ function autoSetPage(canvas) {
 function drawLine(x1, y1, x2, y2) {
   context.beginPath()
   context.moveTo(x1, y1)
-  context.lineWidth = 2
+  context.lineWidth = lineWidth
   context.lineTo(x2, y2)
   context.stroke()
   context.closePath()
