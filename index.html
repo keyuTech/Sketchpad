@@ -1,19 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="//at.alicdn.com/t/font_562183_wmmz9p49467p66r.js"></script>
   <title>Sketchpad</title>
   <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
   <canvas id="canvas" height="600" width="600"></canvas>
   <div id="actions" class="actions">
-    <button id="eraser">橡皮擦</button>
-    <button id="pen">画笔</button>
+    <svg id="pen" class="icon active" aria-hidden="true">
+      <use xlink:href="#icon-pencil1"></use>
+    </svg>
+    <svg id="eraser" class="icon" aria-hidden="true">
+      <use xlink:href="#icon-eraser0"></use>
+    </svg>
   </div>
+  <ul class="colors clearfix" id="colors">
+    <li class="black"></li>
+    <li class="grey"></li>
+    <li class="brown"></li>
+    <li class="pink"></li>
+    <li class="red"></li>
+    <li class="orangeRed "></li>
+    <li class="orange"></li>
+    <li class="yellow"></li>
+    <li class="gressGreen"></li>
+    <li class="green"></li>
+    <li class="lightBlue"></li>
+    <li class="blue"></li>
+    <li class="darkBlue"></li>
+    <li class="purple"></li>
+  </ul>
 
   <script src="./script.js"></script>
 </body>
+
 </html>

@@ -4,17 +4,21 @@ autoSetPage(canvas)
 listenToAction(canvas)
 
 var usingEraser = false
+var pen = document.getElementById('pen')
 var eraser = document.getElementById('eraser')
 var actions = document.getElementById('actions')
-var pen = document.getElementById('pen')
-eraser.onclick = function () {
-  usingEraser = true
-  actions.className = 'actions switch'
-}
-pen.onclick = function () {
+
+pen.onclick = function(){
   usingEraser = false
-  actions.className = 'actions'
+  pen.classList.add('active')
+  eraser.classList.remove('active')
 }
+eraser.onclick = function(){
+  usingEraser = true
+  eraser.classList.add('active')
+  pen.classList.remove('active')
+}
+
 
 function listenToAction(canvas) {
   var active = false
@@ -28,25 +32,22 @@ function listenToAction(canvas) {
     //非触屏设备
     console.log('触屏设备')
     canvas.ontouchstart = function (e) {
-      console.log('start touch')
-      console.log(e)
       var x = e.touches[0].clientX
       var y = e.touches[0].clientY
       active = true
       if (usingEraser) {
-        context.clearRect(x - 5, y - 5, 10, 10)
+        context.clearRect(x - 5, y - 5, 20, 20)
       } else {
         lastPoint.x = x
         lastPoint.y = y
       }
     }
     canvas.ontouchmove = function (e) {
-      console.log('touch move')
       var x = e.touches[0].clientX
       var y = e.touches[0].clientY
       if (!active) { return }
       if (usingEraser) {
-        context.clearRect(x - 5, y - 5, 10, 10)
+        context.clearRect(x - 5, y - 5, 20, 20)
       } else {
         var newPoint = {
           x: x,
@@ -57,7 +58,6 @@ function listenToAction(canvas) {
       }
     }
     canvas.ontouchend = function (e) {
-      console.log('touch end')
       active = false
     }
   } else {

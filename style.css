@@ -2,21 +2,120 @@
   margin: 0;
   padding: 0;
 }
+
+li {
+  list-style: none;
+}
+
+.clearfix {
+  content: '';
+  display: block;
+  clear: both;
+}
+
 #canvas {
-  background-color: #aaa;
   display: block;
 }
+
 .actions {
   position: fixed;
   top: 10px;
   left: 10px;
 }
-.actions > #pen {
-  display: none;
+
+.icon {
+  width: 2em;
+  height: 2em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+  cursor: pointer;
+  margin-right: 10px;
 }
-.actions.switch > #pen {
-  display: inline-block;
+
+.actions svg {
+  transition: all 0.3s;
 }
-.actions.switch > #eraser {
-  display: none;
+
+.actions svg.active {
+  fill: red;
+  transform: scale(1.2);
+}
+
+.colors {
+  position: fixed;
+  top: 50px;
+  left: 10px;
+  width: 80px;
+}
+
+.colors>li {
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 1px 1px 0 0 grey;
+  float: left;
+  margin: 5px;
+  position: relative;
+}
+
+.colors>li:active {
+  top: 2px;
+}
+
+.colors li.black {
+  background-color: rgb(0, 0, 0);
+}
+
+.colors li.grey {
+  background-color: rgb(120, 120, 120);
+}
+
+.colors li.brown {
+  background-color: rgb(152, 0, 48);
+}
+
+.colors li.pink {
+  background-color: rgb(255, 192, 203);
+}
+
+.colors li.red {
+  background-color: rgb(236, 28, 36);
+}
+
+.colors li.orangeRed {
+  background-color: rgb(255, 126, 0);
+}
+
+.colors li.orange {
+  background-color: rgb(255, 193, 14);
+}
+
+.colors li.yellow {
+  background-color: rgb(255, 241, 0);
+}
+
+.colors li.gressGreen {
+  background-color: rgb(167, 229, 29);
+}
+
+.colors li.green {
+  background-color: rgb(34, 176, 76);
+}
+
+.colors li.lightBlue {
+  background-color: rgb(0, 182, 238);
+}
+
+.colors li.blue {
+  background-color: rgb(77, 109, 242);
+}
+
+.colors li.darkBlue {
+  background-color: rgb(47, 54, 152);
+}
+
+.colors li.purple {
+  background-color: rgb(111, 49, 151);
 }
