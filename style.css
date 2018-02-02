@@ -57,11 +57,11 @@ li {
   box-shadow: 1px 1px 0 0 grey;
   float: left;
   margin: 5px;
-  position: relative;
+  transition: all 0.3s;
 }
 
-.colors>li:active {
-  top: 2px;
+.colors > li.active{
+  transform: scale(1.2);
 }
 
 .colors li.black {
@@ -80,7 +80,7 @@ li {
   background-color: rgb(255, 192, 203);
 }
 
-.colors li.red {
+/* .colors li.red {
   background-color: rgb(236, 28, 36);
 }
 
@@ -118,4 +118,4 @@ li {
 
 .colors li.purple {
   background-color: rgb(111, 49, 151);
-}
+} */

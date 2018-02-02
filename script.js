@@ -18,7 +18,34 @@ eraser.onclick = function(){
   eraser.classList.add('active')
   pen.classList.remove('active')
 }
-
+black.onclick = function(){
+  context.strokeStyle = 'rgb(0, 0, 0)'
+  black.classList.add('active')
+  grey.classList.remove('active')
+  brown.classList.remove('active')
+  pink.classList.remove('active')
+}
+grey.onclick = function(){
+  context.strokeStyle = 'rgb(120, 120, 120)'
+  black.classList.remove('active')
+  grey.classList.add('active')
+  brown.classList.remove('active')
+  pink.classList.remove('active')
+}
+brown.onclick = function(){
+  context.strokeStyle = 'rgb(152, 0, 48)'
+  black.classList.remove('active')
+  grey.classList.remove('active')
+  brown.classList.add('active')
+  pink.classList.remove('active')
+}
+pink.onclick = function(){
+  context.strokeStyle = 'rgb(255, 192, 203)'
+  black.classList.remove('active')
+  grey.classList.remove('active')
+  brown.classList.remove('active')
+  pink.classList.add('active')
+}
 
 function listenToAction(canvas) {
   var active = false
