@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+body {
+  overflow: hidden;
+}
+
 li {
   list-style: none;
 }
@@ -60,7 +64,7 @@ li {
   transition: all 0.3s;
 }
 
-.colors > li.active{
+.colors>li.active {
   transform: scale(1.2);
 }
 
@@ -79,6 +83,7 @@ li {
 .colors li.pink {
   background-color: rgb(255, 192, 203);
 }
+
 
 /* .colors li.red {
   background-color: rgb(236, 28, 36);
