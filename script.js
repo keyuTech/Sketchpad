@@ -27,6 +27,39 @@ function listenToAction(canvas) {
   if (touch in document.documentElement) {
     //非触屏设备
     console.log('触屏设备')
+    canvas.ontouchstart = function (e) {
+      console.log('start touch')
+      console.log(e)
+      var x = e.touches[0].clientX
+      var y = e.touches[0].clientY
+      active = true
+      if (usingEraser) {
+        context.clearRect(x - 5, y - 5, 10, 10)
+      } else {
+        lastPoint.x = x
+        lastPoint.y = y
+      }
+    }
+    canvas.ontouchmove = function (e) {
+      console.log('touch move')
+      var x = e.touches[0].clientX
+      var y = e.touches[0].clientY
+      if (!active) { return }
+      if (usingEraser) {
+        context.clearRect(x - 5, y - 5, 10, 10)
+      } else {
+        var newPoint = {
+          x: x,
+          y: y
+        }
+        drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
+        lastPoint = newPoint
+      }
+    }
+    canvas.ontouchend = function (e) {
+      console.log('touch end')
+      active = false
+    }
   } else {
     //触屏设备
     console.log('非触屏设备')
@@ -87,12 +120,3 @@ function drawLine(x1, y1, x2, y2) {
   context.closePath()
 }
 
-canvas.ontouchstart = function () {
-  console.log('start touch')
-}
-canvas.ontouchmove = function () {
-  console.log('touch move')
-}
-canvas.ontouchend = function () {
-  console.log('touch end')
-}
