@@ -1,3 +1,6 @@
+// document.body.ontouchstart = function(e){
+//   e.preventDefault()
+// }
 var canvas = document.getElementById('canvas')
 var context = canvas.getContext('2d')
 context.fillStyle = '#fff'
