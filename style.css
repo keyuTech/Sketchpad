@@ -19,6 +19,7 @@ li {
 
 #canvas {
   display: block;
+  background-color: #fff;
 }
 
 .actions {
